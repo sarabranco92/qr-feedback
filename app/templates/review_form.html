@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Leave a Review - {{ business.name }}</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <main class="card">
+    <h1>{{ business.name }}</h1>
+    <p class="muted">Leave a rating (1–5) and an optional comment.</p>
+
+    {% if success %}
+      <div class="success">Thanks! Your review was submitted.</div>
+    {% endif %}
+
+    <form method="post">
+      <label>Rating (1–5)</label>
+      <select name="rating" required>
+        <option value="5">5 - Great</option>
+        <option value="4">4 - Good</option>
+        <option value="3">3 - OK</option>
+        <option value="2">2 - Bad</option>
+        <option value="1">1 - Terrible</option>
+      </select>
+
+      <label>Comment (optional)</label>
+      <textarea name="comment" rows="4" placeholder="What went well / what to improve..."></textarea>
+
+      <label>Email (optional)</label>
+      <input name="contact_email" type="email" placeholder="If you want a reply" />
+
+      <button type="submit">Send</button>
+    </form>
+
+    <p class="tiny muted">QR link: /r/{{ business.slug }}</p>
+  </main>
+</body>
+</html>

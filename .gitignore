@@ -1,0 +1,13 @@
+# virtual env
+.venv/
+venv/
+
+# local db
+data/
+
+# python junk
+__pycache__/
+*.pyc
+
+# env files
+.env
